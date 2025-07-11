@@ -126,7 +126,7 @@ class StickPerson {
         this.bones.head.position.set(0, 1.5, 0);
         this.bones.spine.add(this.bones.head);
         
-        // Left arm chain
+        // Left arm chain - adjusted positions for proper connection
         this.bones.leftShoulder = new THREE.Bone();
         this.bones.leftShoulder.position.set(-0.5, 1.2, 0);
         this.bones.spine.add(this.bones.leftShoulder);
@@ -139,7 +139,7 @@ class StickPerson {
         this.bones.leftForearm.position.set(-0.7, 0, 0);
         this.bones.leftArm.add(this.bones.leftForearm);
         
-        // Right arm chain
+        // Right arm chain - adjusted positions for proper connection
         this.bones.rightShoulder = new THREE.Bone();
         this.bones.rightShoulder.position.set(0.5, 1.2, 0);
         this.bones.spine.add(this.bones.rightShoulder);
@@ -152,9 +152,9 @@ class StickPerson {
         this.bones.rightForearm.position.set(0.7, 0, 0);
         this.bones.rightArm.add(this.bones.rightForearm);
         
-        // Left leg chain
+        // Left leg chain - adjusted positions for proper connection
         this.bones.leftHip = new THREE.Bone();
-        this.bones.leftHip.position.set(-0.3, 0, 0);
+        this.bones.leftHip.position.set(-0.3, 0.2, 0);
         this.bones.root.add(this.bones.leftHip);
         
         this.bones.leftThigh = new THREE.Bone();
@@ -165,9 +165,9 @@ class StickPerson {
         this.bones.leftShin.position.set(0, -0.8, 0);
         this.bones.leftThigh.add(this.bones.leftShin);
         
-        // Right leg chain
+        // Right leg chain - adjusted positions for proper connection
         this.bones.rightHip = new THREE.Bone();
-        this.bones.rightHip.position.set(0.3, 0, 0);
+        this.bones.rightHip.position.set(0.3, 0.2, 0);
         this.bones.root.add(this.bones.rightHip);
         
         this.bones.rightThigh = new THREE.Bone();
@@ -200,7 +200,7 @@ class StickPerson {
         this.meshes.torso.castShadow = true;
         this.bones.spine.add(this.meshes.torso);
         
-        // Arms
+        // Arms - positioned to connect at joints
         const armGeometry = new THREE.CylinderGeometry(0.05, 0.05, 0.7, 8);
         
         this.meshes.leftArm = new THREE.Mesh(armGeometry, stickMaterial);
@@ -227,7 +227,7 @@ class StickPerson {
         this.meshes.rightForearm.castShadow = true;
         this.bones.rightArm.add(this.meshes.rightForearm);
         
-        // Legs
+        // Legs - positioned to connect at joints
         const legGeometry = new THREE.CylinderGeometry(0.05, 0.05, 0.8, 8);
         
         this.meshes.leftThigh = new THREE.Mesh(legGeometry, stickMaterial);
@@ -374,4 +374,3 @@ const stickPerson = new StickPerson();
 
 // Make it globally available for the HTML controls
 window.stickPerson = stickPerson;
-
