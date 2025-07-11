@@ -347,35 +347,35 @@ class StickPerson {
         this.bones.spine.add(this.meshes.spine);
         
         // Arms - Updated to properly span between joints
-        const armGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.12, 8);
-        const forearmGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.12, 8);
+        const armGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.24, 8);
+        const forearmGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.24, 8);
         
         // Left arm
         this.meshes.leftArm = new THREE.Mesh(armGeometry, stickMaterial);
-        this.meshes.leftArm.position.set(-0.06, 0, 0);
+        this.meshes.leftArm.position.set(-0.12, 0, 0);
         this.meshes.leftArm.rotation.z = Math.PI / 2;
         this.meshes.leftArm.castShadow = true;
         this.bones.leftArm.add(this.meshes.leftArm);
-
+        
         this.meshes.leftForearm = new THREE.Mesh(forearmGeometry, stickMaterial);
-        this.meshes.leftForearm.position.set(-0.06, 0, 0);
+        this.meshes.leftForearm.position.set(-0.12, 0, 0);
         this.meshes.leftForearm.rotation.z = Math.PI / 2;
         this.meshes.leftForearm.castShadow = true;
-        this.bones.leftForearm.add(this.meshes.leftForearm);
-
+        this.bones.leftElbow.add(this.meshes.leftForearm);
+        
         // Right arm
         this.meshes.rightArm = new THREE.Mesh(armGeometry, stickMaterial);
-        this.meshes.rightArm.position.set(0.06, 0, 0);
+        this.meshes.rightArm.position.set(0.12, 0, 0);
         this.meshes.rightArm.rotation.z = Math.PI / 2;
         this.meshes.rightArm.castShadow = true;
         this.bones.rightArm.add(this.meshes.rightArm);
-
+        
         this.meshes.rightForearm = new THREE.Mesh(forearmGeometry, stickMaterial);
-        this.meshes.rightForearm.position.set(0.06, 0, 0);
+        this.meshes.rightForearm.position.set(0.12, 0, 0);
         this.meshes.rightForearm.rotation.z = Math.PI / 2;
         this.meshes.rightForearm.castShadow = true;
-        this.bones.rightForearm.add(this.meshes.rightForearm);
-
+        this.bones.rightElbow.add(this.meshes.rightForearm);
+        
         // Hands
         const handGeometry = new THREE.BoxGeometry(0.08, 0.05, 0.03);
         
@@ -423,30 +423,30 @@ class StickPerson {
         });
         
         // Legs
-        const thighGeometry = new THREE.CylinderGeometry(0.04, 0.04, 0.25, 8);
-        const shinGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.25, 8);
+        const thighGeometry = new THREE.CylinderGeometry(0.04, 0.04, 0.5, 8);
+        const shinGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.5, 8);
         
         // Left leg
         this.meshes.leftThigh = new THREE.Mesh(thighGeometry, stickMaterial);
-        this.meshes.leftThigh.position.set(0, -0.125, 0);
+        this.meshes.leftThigh.position.set(0, -0.25, 0);
         this.meshes.leftThigh.castShadow = true;
         this.bones.leftThigh.add(this.meshes.leftThigh);
-
+        
         this.meshes.leftShin = new THREE.Mesh(shinGeometry, stickMaterial);
-        this.meshes.leftShin.position.set(0, -0.125, 0);
+        this.meshes.leftShin.position.set(0, -0.25, 0);
         this.meshes.leftShin.castShadow = true;
-        this.bones.leftShin.add(this.meshes.leftShin);
+        this.bones.leftKnee.add(this.meshes.leftShin);
         
         // Right leg
         this.meshes.rightThigh = new THREE.Mesh(thighGeometry, stickMaterial);
-        this.meshes.rightThigh.position.set(0, -0.125, 0);
+        this.meshes.rightThigh.position.set(0, -0.25, 0);
         this.meshes.rightThigh.castShadow = true;
         this.bones.rightThigh.add(this.meshes.rightThigh);
-
+        
         this.meshes.rightShin = new THREE.Mesh(shinGeometry, stickMaterial);
-        this.meshes.rightShin.position.set(0, -0.125, 0);
+        this.meshes.rightShin.position.set(0, -0.25, 0);
         this.meshes.rightShin.castShadow = true;
-        this.bones.rightShin.add(this.meshes.rightShin);
+        this.bones.rightKnee.add(this.meshes.rightShin);
         
         // Feet
         const footGeometry = new THREE.BoxGeometry(0.16, 0.04, 0.06);
