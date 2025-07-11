@@ -346,9 +346,9 @@ class StickPerson {
         this.meshes.spine.castShadow = true;
         this.bones.spine.add(this.meshes.spine);
         
-        // Arms
-        const armGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.15, 8);
-        const forearmGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.15, 8);
+        // Arms - Updated to properly span between joints
+        const armGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.12, 8);
+        const forearmGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.12, 8);
         
         // Left arm
         this.meshes.leftArm = new THREE.Mesh(armGeometry, stickMaterial);
