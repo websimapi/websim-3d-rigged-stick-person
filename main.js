@@ -161,7 +161,7 @@ class StickPerson {
         
         // Left arm chain - connected to chest
         this.bones.leftShoulder = new THREE.Bone();
-        this.bones.leftShoulder.position.set(-0.15, 0.1, 0);
+        this.bones.leftShoulder.position.set(-0.1, 0.1, 0);
         this.bones.chest.add(this.bones.leftShoulder);
         
         this.bones.leftArm = new THREE.Bone();
@@ -184,11 +184,11 @@ class StickPerson {
         this.bones.leftFingers = {};
         const fingerNames = ['thumb', 'index', 'middle', 'ring', 'pinky'];
         const fingerPositions = [
-            [-0.06, 0.03, 0.03],  // thumb
-            [-0.08, 0.05, 0],     // index
-            [-0.08, 0.02, 0],     // middle
-            [-0.08, -0.02, 0],    // ring
-            [-0.08, -0.05, 0]     // pinky
+            [-0.04, 0.02, 0.02],  // thumb
+            [-0.06, 0.03, 0],     // index
+            [-0.06, 0.01, 0],     // middle
+            [-0.06, -0.01, 0],    // ring
+            [-0.06, -0.03, 0]     // pinky
         ];
         
         fingerNames.forEach((name, i) => {
@@ -201,18 +201,18 @@ class StickPerson {
             
             // Finger middle
             this.bones.leftFingers[name].middle = new THREE.Bone();
-            this.bones.leftFingers[name].middle.position.set(-0.04, 0, 0);
+            this.bones.leftFingers[name].middle.position.set(-0.03, 0, 0);
             this.bones.leftFingers[name].base.add(this.bones.leftFingers[name].middle);
             
             // Finger tip
             this.bones.leftFingers[name].tip = new THREE.Bone();
-            this.bones.leftFingers[name].tip.position.set(-0.03, 0, 0);
+            this.bones.leftFingers[name].tip.position.set(-0.02, 0, 0);
             this.bones.leftFingers[name].middle.add(this.bones.leftFingers[name].tip);
         });
         
         // Right arm chain - connected to chest
         this.bones.rightShoulder = new THREE.Bone();
-        this.bones.rightShoulder.position.set(0.15, 0.1, 0);
+        this.bones.rightShoulder.position.set(0.1, 0.1, 0);
         this.bones.chest.add(this.bones.rightShoulder);
         
         this.bones.rightArm = new THREE.Bone();
@@ -234,11 +234,11 @@ class StickPerson {
         // Right hand fingers
         this.bones.rightFingers = {};
         const rightFingerPositions = [
-            [0.06, 0.03, 0.03],   // thumb
-            [0.08, 0.05, 0],      // index
-            [0.08, 0.02, 0],      // middle
-            [0.08, -0.02, 0],     // ring
-            [0.08, -0.05, 0]      // pinky
+            [0.04, 0.02, 0.02],   // thumb
+            [0.06, 0.03, 0],      // index
+            [0.06, 0.01, 0],      // middle
+            [0.06, -0.01, 0],     // ring
+            [0.06, -0.03, 0]      // pinky
         ];
         
         fingerNames.forEach((name, i) => {
@@ -251,18 +251,18 @@ class StickPerson {
             
             // Finger middle
             this.bones.rightFingers[name].middle = new THREE.Bone();
-            this.bones.rightFingers[name].middle.position.set(0.04, 0, 0);
+            this.bones.rightFingers[name].middle.position.set(0.03, 0, 0);
             this.bones.rightFingers[name].base.add(this.bones.rightFingers[name].middle);
             
             // Finger tip
             this.bones.rightFingers[name].tip = new THREE.Bone();
-            this.bones.rightFingers[name].tip.position.set(0.03, 0, 0);
+            this.bones.rightFingers[name].tip.position.set(0.02, 0, 0);
             this.bones.rightFingers[name].middle.add(this.bones.rightFingers[name].tip);
         });
         
         // Left leg chain - connected to spine
         this.bones.leftHip = new THREE.Bone();
-        this.bones.leftHip.position.set(-0.08, -0.1, 0);
+        this.bones.leftHip.position.set(-0.06, -0.1, 0);
         this.bones.spine.add(this.bones.leftHip);
         
         this.bones.leftThigh = new THREE.Bone();
@@ -278,16 +278,16 @@ class StickPerson {
         this.bones.leftKnee.add(this.bones.leftShin);
         
         this.bones.leftFoot = new THREE.Bone();
-        this.bones.leftFoot.position.set(0, -0.15, 0.1);
+        this.bones.leftFoot.position.set(0, -0.15, 0.08);
         this.bones.leftShin.add(this.bones.leftFoot);
         
         this.bones.leftToes = new THREE.Bone();
-        this.bones.leftToes.position.set(0, 0, 0.1);
+        this.bones.leftToes.position.set(0, 0, 0.08);
         this.bones.leftFoot.add(this.bones.leftToes);
         
         // Right leg chain - connected to spine
         this.bones.rightHip = new THREE.Bone();
-        this.bones.rightHip.position.set(0.08, -0.1, 0);
+        this.bones.rightHip.position.set(0.06, -0.1, 0);
         this.bones.spine.add(this.bones.rightHip);
         
         this.bones.rightThigh = new THREE.Bone();
@@ -303,11 +303,11 @@ class StickPerson {
         this.bones.rightKnee.add(this.bones.rightShin);
         
         this.bones.rightFoot = new THREE.Bone();
-        this.bones.rightFoot.position.set(0, -0.15, 0.1);
+        this.bones.rightFoot.position.set(0, -0.15, 0.08);
         this.bones.rightShin.add(this.bones.rightFoot);
         
         this.bones.rightToes = new THREE.Bone();
-        this.bones.rightToes.position.set(0, 0, 0.1);
+        this.bones.rightToes.position.set(0, 0, 0.08);
         this.bones.rightFoot.add(this.bones.rightToes);
         
         // Add root to scene
@@ -319,14 +319,14 @@ class StickPerson {
         const jointMaterial = new THREE.MeshLambertMaterial({ color: 0xff4444 });
         
         // Head
-        const headGeometry = new THREE.SphereGeometry(0.15, 16, 16);
+        const headGeometry = new THREE.SphereGeometry(0.12, 16, 16);
         this.meshes.head = new THREE.Mesh(headGeometry, stickMaterial);
         this.meshes.head.position.copy(this.bones.head.position);
         this.meshes.head.castShadow = true;
         this.bones.neck.add(this.meshes.head);
         
         // Neck
-        const neckGeometry = new THREE.CylinderGeometry(0.05, 0.05, 0.2, 8);
+        const neckGeometry = new THREE.CylinderGeometry(0.04, 0.04, 0.2, 8);
         this.meshes.neck = new THREE.Mesh(neckGeometry, stickMaterial);
         this.meshes.neck.position.set(0, 0.1, 0);
         this.meshes.neck.castShadow = true;
@@ -347,8 +347,8 @@ class StickPerson {
         this.bones.spine.add(this.meshes.spine);
         
         // Arms
-        const armGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.2, 8);
-        const forearmGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.2, 8);
+        const armGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.2, 8);
+        const forearmGeometry = new THREE.CylinderGeometry(0.02, 0.02, 0.2, 8);
         
         // Left arm
         this.meshes.leftArm = new THREE.Mesh(armGeometry, stickMaterial);
@@ -377,31 +377,31 @@ class StickPerson {
         this.bones.rightElbow.add(this.meshes.rightForearm);
         
         // Hands
-        const handGeometry = new THREE.BoxGeometry(0.1, 0.06, 0.04);
+        const handGeometry = new THREE.BoxGeometry(0.08, 0.05, 0.03);
         
         this.meshes.leftHand = new THREE.Mesh(handGeometry, stickMaterial);
-        this.meshes.leftHand.position.set(-0.05, 0, 0);
+        this.meshes.leftHand.position.set(-0.04, 0, 0);
         this.meshes.leftHand.castShadow = true;
         this.bones.leftHand.add(this.meshes.leftHand);
         
         this.meshes.rightHand = new THREE.Mesh(handGeometry, stickMaterial);
-        this.meshes.rightHand.position.set(0.05, 0, 0);
+        this.meshes.rightHand.position.set(0.04, 0, 0);
         this.meshes.rightHand.castShadow = true;
         this.bones.rightHand.add(this.meshes.rightHand);
         
         // Fingers
-        const fingerGeometry = new THREE.CylinderGeometry(0.005, 0.005, 0.04, 6);
+        const fingerGeometry = new THREE.CylinderGeometry(0.004, 0.004, 0.03, 6);
         
         // Left fingers
         Object.values(this.bones.leftFingers).forEach(finger => {
             const fingerMesh1 = new THREE.Mesh(fingerGeometry, stickMaterial);
-            fingerMesh1.position.set(-0.02, 0, 0);
+            fingerMesh1.position.set(-0.015, 0, 0);
             fingerMesh1.rotation.z = Math.PI / 2;
             fingerMesh1.castShadow = true;
             finger.base.add(fingerMesh1);
             
             const fingerMesh2 = new THREE.Mesh(fingerGeometry, stickMaterial);
-            fingerMesh2.position.set(-0.02, 0, 0);
+            fingerMesh2.position.set(-0.015, 0, 0);
             fingerMesh2.rotation.z = Math.PI / 2;
             fingerMesh2.castShadow = true;
             finger.middle.add(fingerMesh2);
@@ -410,21 +410,21 @@ class StickPerson {
         // Right fingers
         Object.values(this.bones.rightFingers).forEach(finger => {
             const fingerMesh1 = new THREE.Mesh(fingerGeometry, stickMaterial);
-            fingerMesh1.position.set(0.02, 0, 0);
+            fingerMesh1.position.set(0.015, 0, 0);
             fingerMesh1.rotation.z = Math.PI / 2;
             fingerMesh1.castShadow = true;
             finger.base.add(fingerMesh1);
             
             const fingerMesh2 = new THREE.Mesh(fingerGeometry, stickMaterial);
-            fingerMesh2.position.set(0.02, 0, 0);
+            fingerMesh2.position.set(0.015, 0, 0);
             fingerMesh2.rotation.z = Math.PI / 2;
             fingerMesh2.castShadow = true;
             finger.middle.add(fingerMesh2);
         });
         
         // Legs
-        const thighGeometry = new THREE.CylinderGeometry(0.04, 0.04, 0.3, 8);
-        const shinGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.3, 8);
+        const thighGeometry = new THREE.CylinderGeometry(0.035, 0.035, 0.3, 8);
+        const shinGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.3, 8);
         
         // Left leg
         this.meshes.leftThigh = new THREE.Mesh(thighGeometry, stickMaterial);
@@ -449,21 +449,21 @@ class StickPerson {
         this.bones.rightKnee.add(this.meshes.rightShin);
         
         // Feet
-        const footGeometry = new THREE.BoxGeometry(0.2, 0.05, 0.08);
+        const footGeometry = new THREE.BoxGeometry(0.16, 0.04, 0.06);
         
         this.meshes.leftFoot = new THREE.Mesh(footGeometry, stickMaterial);
-        this.meshes.leftFoot.position.set(0, 0, 0.05);
+        this.meshes.leftFoot.position.set(0, 0, 0.04);
         this.meshes.leftFoot.castShadow = true;
         this.bones.leftFoot.add(this.meshes.leftFoot);
         
         this.meshes.rightFoot = new THREE.Mesh(footGeometry, stickMaterial);
-        this.meshes.rightFoot.position.set(0, 0, 0.05);
+        this.meshes.rightFoot.position.set(0, 0, 0.04);
         this.meshes.rightFoot.castShadow = true;
         this.bones.rightFoot.add(this.meshes.rightFoot);
         
         // Joint spheres for better visualization
-        const jointGeometry = new THREE.SphereGeometry(0.04, 8, 8);
-        const smallJointGeometry = new THREE.SphereGeometry(0.025, 6, 6);
+        const jointGeometry = new THREE.SphereGeometry(0.03, 8, 8);
+        const smallJointGeometry = new THREE.SphereGeometry(0.02, 6, 6);
         
         // Major joints
         const majorJoints = [
