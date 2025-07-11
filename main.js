@@ -586,6 +586,68 @@ class StickPerson {
         document.getElementById('rightFootRotX').addEventListener('input', (e) => {
             this.bones.rightFoot.rotation.x = THREE.MathUtils.degToRad(e.target.value);
         });
+        
+        // Setup mesh positioning and scaling controls
+        this.setupMeshControls();
+    }
+    
+    setupMeshControls() {
+        const meshes = ['head', 'neck', 'chest', 'spine', 'leftArm', 'leftForearm', 'rightArm', 'rightForearm', 'leftThigh', 'leftShin', 'rightThigh', 'rightShin'];
+        
+        meshes.forEach(meshName => {
+            if (this.meshes[meshName]) {
+                // Position controls
+                ['x', 'y', 'z'].forEach(axis => {
+                    const posSlider = document.getElementById(`${meshName}-pos-${axis}`);
+                    if (posSlider) {
+                        posSlider.addEventListener('input', (e) => {
+                            this.meshes[meshName].position[axis] = parseFloat(e.target.value);
+                        });
+                    }
+                });
+                
+                // Scale controls
+                ['x', 'y', 'z'].forEach(axis => {
+                    const scaleSlider = document.getElementById(`${meshName}-scale-${axis}`);
+                    if (scaleSlider) {
+                        scaleSlider.addEventListener('input', (e) => {
+                            this.meshes[meshName].scale[axis] = parseFloat(e.target.value);
+                        });
+                    }
+                });
+            }
+        });
+    }
+    
+    logCurrentValues() {
+        console.log('Current mesh values:');
+        const meshes = ['head', 'neck', 'chest', 'spine', 'leftArm', 'leftForearm', 'rightArm', 'rightForearm', 'leftThigh', 'leftShin', 'rightThigh', 'rightShin'];
+        
+        meshes.forEach(meshName => {
+            if (this.meshes[meshName]) {
+                const pos = this.meshes[meshName].position;
+                const scale = this.meshes[meshName].scale;
+                console.log(`${meshName}: position(${pos.x.toFixed(3)}, ${pos.y.toFixed(3)}, ${pos.z.toFixed(3)}) scale(${scale.x.toFixed(2)}, ${scale.y.toFixed(2)}, ${scale.z.toFixed(2)})`);
+            }
+        });
+    }
+    
+    resetMeshValues() {
+        const meshes = ['head', 'neck', 'chest', 'spine', 'leftArm', 'leftForearm', 'rightArm', 'rightForearm', 'leftThigh', 'leftShin', 'rightThigh', 'rightShin'];
+        
+        meshes.forEach(meshName => {
+            if (this.meshes[meshName]) {
+                // Reset scale to 1
+                this.meshes[meshName].scale.set(1, 1, 1);
+                
+                // Reset position sliders
+                ['x', 'y', 'z'].forEach(axis => {
+                    const posSlider = document.getElementById(`${meshName}-pos-${axis}`);
+                    const scaleSlider = document.getElementById(`${meshName}-scale-${axis}`);
+                    if (scaleSlider) scaleSlider.value = 1;
+                });
+            }
+        });
     }
     
     resetPose() {
@@ -650,3 +712,11 @@ const stickPerson = new StickPerson();
 
 // Make it globally available for the HTML controls
 window.stickPerson = stickPerson;
+
+// Global function to toggle mesh controls
+function toggleMeshControls() {
+    const content = document.getElementById('mesh-controls-content');
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+}
+
+window.toggleMeshControls = toggleMeshControls;
