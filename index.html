@@ -76,11 +76,16 @@
 <body>
     <div id="container">
         <div id="controls">
-            <h3>Stick Person Controls</h3>
+            <h3>Full Body Rig Controls</h3>
             <div class="control-group">
                 <label>Head Rotation:</label>
                 <input type="range" id="headRotX" min="-30" max="30" value="0" step="1">
                 <input type="range" id="headRotY" min="-45" max="45" value="0" step="1">
+            </div>
+            <div class="control-group">
+                <label>Neck Rotation:</label>
+                <input type="range" id="neckRotX" min="-20" max="20" value="0" step="1">
+                <input type="range" id="neckRotY" min="-30" max="30" value="0" step="1">
             </div>
             <div class="control-group">
                 <label>Left Arm:</label>
@@ -88,17 +93,51 @@
                 <input type="range" id="leftArmRotZ" min="-180" max="180" value="0" step="1">
             </div>
             <div class="control-group">
+                <label>Left Elbow:</label>
+                <input type="range" id="leftElbowRotX" min="-150" max="0" value="0" step="1">
+            </div>
+            <div class="control-group">
+                <label>Left Hand:</label>
+                <input type="range" id="leftHandRotX" min="-45" max="45" value="0" step="1">
+                <input type="range" id="leftHandRotY" min="-30" max="30" value="0" step="1">
+            </div>
+            <div class="control-group">
                 <label>Right Arm:</label>
                 <input type="range" id="rightArmRotX" min="-90" max="90" value="0" step="1">
                 <input type="range" id="rightArmRotZ" min="-180" max="180" value="0" step="1">
+            </div>
+            <div class="control-group">
+                <label>Right Elbow:</label>
+                <input type="range" id="rightElbowRotX" min="-150" max="0" value="0" step="1">
+            </div>
+            <div class="control-group">
+                <label>Right Hand:</label>
+                <input type="range" id="rightHandRotX" min="-45" max="45" value="0" step="1">
+                <input type="range" id="rightHandRotY" min="-30" max="30" value="0" step="1">
             </div>
             <div class="control-group">
                 <label>Left Leg:</label>
                 <input type="range" id="leftLegRotX" min="-90" max="90" value="0" step="1">
             </div>
             <div class="control-group">
+                <label>Left Knee:</label>
+                <input type="range" id="leftKneeRotX" min="0" max="150" value="0" step="1">
+            </div>
+            <div class="control-group">
+                <label>Left Foot:</label>
+                <input type="range" id="leftFootRotX" min="-45" max="45" value="0" step="1">
+            </div>
+            <div class="control-group">
                 <label>Right Leg:</label>
                 <input type="range" id="rightLegRotX" min="-90" max="90" value="0" step="1">
+            </div>
+            <div class="control-group">
+                <label>Right Knee:</label>
+                <input type="range" id="rightKneeRotX" min="0" max="150" value="0" step="1">
+            </div>
+            <div class="control-group">
+                <label>Right Foot:</label>
+                <input type="range" id="rightFootRotX" min="-45" max="45" value="0" step="1">
             </div>
             <button onclick="stickPerson.resetPose()">Reset Pose</button>
             <button onclick="stickPerson.testAnimation()">Test Animation</button>
@@ -123,4 +162,3 @@
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
-
