@@ -319,65 +319,67 @@ class StickPerson {
         const jointMaterial = new THREE.MeshLambertMaterial({ color: 0xff4444 });
         
         // Head
-        const headGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+        const headGeometry = new THREE.SphereGeometry(0.08, 16, 16);
         this.meshes.head = new THREE.Mesh(headGeometry, stickMaterial);
-        this.meshes.head.position.copy(this.bones.head.position);
+        this.meshes.head.position.set(0, 0.075, 0);
         this.meshes.head.castShadow = true;
-        this.bones.neck.add(this.meshes.head);
+        this.bones.head.add(this.meshes.head);
         
-        // Neck
-        const neckGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.15, 8);
+        // Neck - matches bone length of 0.15
+        const neckGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.15, 8);
         this.meshes.neck = new THREE.Mesh(neckGeometry, stickMaterial);
         this.meshes.neck.position.set(0, 0.075, 0);
         this.meshes.neck.castShadow = true;
         this.bones.neck.add(this.meshes.neck);
         
-        // Chest (upper torso) - adjusted size and position
-        const chestGeometry = new THREE.CylinderGeometry(0.08, 0.06, 0.3, 8);
+        // Chest - matches bone length of 0.3
+        const chestGeometry = new THREE.CylinderGeometry(0.06, 0.05, 0.3, 8);
         this.meshes.chest = new THREE.Mesh(chestGeometry, stickMaterial);
         this.meshes.chest.position.set(0, 0.15, 0);
         this.meshes.chest.castShadow = true;
         this.bones.chest.add(this.meshes.chest);
         
-        // Spine (lower torso) - adjusted size and position
-        const spineGeometry = new THREE.CylinderGeometry(0.06, 0.08, 0.5, 8);
+        // Spine - matches bone length of 0.5
+        const spineGeometry = new THREE.CylinderGeometry(0.05, 0.06, 0.5, 8);
         this.meshes.spine = new THREE.Mesh(spineGeometry, stickMaterial);
         this.meshes.spine.position.set(0, 0.25, 0);
         this.meshes.spine.castShadow = true;
         this.bones.spine.add(this.meshes.spine);
         
-        // Arms - adjusted to connect properly
-        const armGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.12, 8);
-        const forearmGeometry = new THREE.CylinderGeometry(0.02, 0.02, 0.12, 8);
+        // Arms - match bone lengths of 0.12 each
+        const armGeometry = new THREE.CylinderGeometry(0.02, 0.02, 0.12, 8);
+        const forearmGeometry = new THREE.CylinderGeometry(0.018, 0.018, 0.12, 8);
         
-        // Left arm
+        // Left arm - positioned to span from shoulder to elbow
         this.meshes.leftArm = new THREE.Mesh(armGeometry, stickMaterial);
         this.meshes.leftArm.position.set(-0.06, 0, 0);
         this.meshes.leftArm.rotation.z = Math.PI / 2;
         this.meshes.leftArm.castShadow = true;
-        this.bones.leftShoulder.add(this.meshes.leftArm);
+        this.bones.leftArm.add(this.meshes.leftArm);
         
+        // Left forearm - positioned to span from elbow to hand
         this.meshes.leftForearm = new THREE.Mesh(forearmGeometry, stickMaterial);
         this.meshes.leftForearm.position.set(-0.06, 0, 0);
         this.meshes.leftForearm.rotation.z = Math.PI / 2;
         this.meshes.leftForearm.castShadow = true;
-        this.bones.leftElbow.add(this.meshes.leftForearm);
+        this.bones.leftForearm.add(this.meshes.leftForearm);
         
-        // Right arm
+        // Right arm - positioned to span from shoulder to elbow
         this.meshes.rightArm = new THREE.Mesh(armGeometry, stickMaterial);
         this.meshes.rightArm.position.set(0.06, 0, 0);
         this.meshes.rightArm.rotation.z = Math.PI / 2;
         this.meshes.rightArm.castShadow = true;
-        this.bones.rightShoulder.add(this.meshes.rightArm);
+        this.bones.rightArm.add(this.meshes.rightArm);
         
+        // Right forearm - positioned to span from elbow to hand
         this.meshes.rightForearm = new THREE.Mesh(forearmGeometry, stickMaterial);
         this.meshes.rightForearm.position.set(0.06, 0, 0);
         this.meshes.rightForearm.rotation.z = Math.PI / 2;
         this.meshes.rightForearm.castShadow = true;
-        this.bones.rightElbow.add(this.meshes.rightForearm);
+        this.bones.rightForearm.add(this.meshes.rightForearm);
         
-        // Hands
-        const handGeometry = new THREE.BoxGeometry(0.06, 0.04, 0.025);
+        // Hands - match bone length of 0.06
+        const handGeometry = new THREE.BoxGeometry(0.06, 0.03, 0.02);
         
         this.meshes.leftHand = new THREE.Mesh(handGeometry, stickMaterial);
         this.meshes.leftHand.position.set(-0.03, 0, 0);
@@ -389,8 +391,8 @@ class StickPerson {
         this.meshes.rightHand.castShadow = true;
         this.bones.rightHand.add(this.meshes.rightHand);
         
-        // Fingers
-        const fingerGeometry = new THREE.CylinderGeometry(0.004, 0.004, 0.03, 6);
+        // Fingers - match bone lengths
+        const fingerGeometry = new THREE.CylinderGeometry(0.003, 0.003, 0.03, 6);
         
         // Left fingers
         Object.values(this.bones.leftFingers).forEach(finger => {
@@ -401,7 +403,7 @@ class StickPerson {
             finger.base.add(fingerMesh1);
             
             const fingerMesh2 = new THREE.Mesh(fingerGeometry, stickMaterial);
-            fingerMesh2.position.set(-0.015, 0, 0);
+            fingerMesh2.position.set(-0.01, 0, 0);
             fingerMesh2.rotation.z = Math.PI / 2;
             fingerMesh2.castShadow = true;
             finger.middle.add(fingerMesh2);
@@ -416,40 +418,42 @@ class StickPerson {
             finger.base.add(fingerMesh1);
             
             const fingerMesh2 = new THREE.Mesh(fingerGeometry, stickMaterial);
-            fingerMesh2.position.set(0.015, 0, 0);
+            fingerMesh2.position.set(0.01, 0, 0);
             fingerMesh2.rotation.z = Math.PI / 2;
             fingerMesh2.castShadow = true;
             finger.middle.add(fingerMesh2);
         });
         
-        // Legs - adjusted to connect properly
-        const thighGeometry = new THREE.CylinderGeometry(0.035, 0.035, 0.25, 8);
-        const shinGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.25, 8);
+        // Legs - match bone lengths of 0.25 each
+        const thighGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.25, 8);
+        const shinGeometry = new THREE.CylinderGeometry(0.02, 0.02, 0.25, 8);
         
-        // Left leg
+        // Left leg - positioned to span from hip to knee
         this.meshes.leftThigh = new THREE.Mesh(thighGeometry, stickMaterial);
         this.meshes.leftThigh.position.set(0, -0.125, 0);
         this.meshes.leftThigh.castShadow = true;
-        this.bones.leftHip.add(this.meshes.leftThigh);
+        this.bones.leftThigh.add(this.meshes.leftThigh);
         
+        // Left shin - positioned to span from knee to foot
         this.meshes.leftShin = new THREE.Mesh(shinGeometry, stickMaterial);
         this.meshes.leftShin.position.set(0, -0.125, 0);
         this.meshes.leftShin.castShadow = true;
-        this.bones.leftKnee.add(this.meshes.leftShin);
+        this.bones.leftShin.add(this.meshes.leftShin);
         
-        // Right leg
+        // Right leg - positioned to span from hip to knee
         this.meshes.rightThigh = new THREE.Mesh(thighGeometry, stickMaterial);
         this.meshes.rightThigh.position.set(0, -0.125, 0);
         this.meshes.rightThigh.castShadow = true;
-        this.bones.rightHip.add(this.meshes.rightThigh);
+        this.bones.rightThigh.add(this.meshes.rightThigh);
         
+        // Right shin - positioned to span from knee to foot
         this.meshes.rightShin = new THREE.Mesh(shinGeometry, stickMaterial);
         this.meshes.rightShin.position.set(0, -0.125, 0);
         this.meshes.rightShin.castShadow = true;
-        this.bones.rightKnee.add(this.meshes.rightShin);
+        this.bones.rightShin.add(this.meshes.rightShin);
         
-        // Feet
-        const footGeometry = new THREE.BoxGeometry(0.16, 0.04, 0.06);
+        // Feet - match bone positioning
+        const footGeometry = new THREE.BoxGeometry(0.12, 0.03, 0.08);
         
         this.meshes.leftFoot = new THREE.Mesh(footGeometry, stickMaterial);
         this.meshes.leftFoot.position.set(0, 0, 0.04);
@@ -461,9 +465,9 @@ class StickPerson {
         this.meshes.rightFoot.castShadow = true;
         this.bones.rightFoot.add(this.meshes.rightFoot);
         
-        // Joint spheres for better visualization - smaller joints
-        const jointGeometry = new THREE.SphereGeometry(0.025, 8, 8);
-        const smallJointGeometry = new THREE.SphereGeometry(0.018, 6, 6);
+        // Joint spheres - smaller and properly positioned
+        const jointGeometry = new THREE.SphereGeometry(0.015, 8, 8);
+        const smallJointGeometry = new THREE.SphereGeometry(0.01, 6, 6);
         
         // Major joints
         const majorJoints = [
@@ -586,68 +590,6 @@ class StickPerson {
         document.getElementById('rightFootRotX').addEventListener('input', (e) => {
             this.bones.rightFoot.rotation.x = THREE.MathUtils.degToRad(e.target.value);
         });
-        
-        // Setup mesh positioning and scaling controls
-        this.setupMeshControls();
-    }
-    
-    setupMeshControls() {
-        const meshes = ['head', 'neck', 'chest', 'spine', 'leftArm', 'leftForearm', 'rightArm', 'rightForearm', 'leftThigh', 'leftShin', 'rightThigh', 'rightShin'];
-        
-        meshes.forEach(meshName => {
-            if (this.meshes[meshName]) {
-                // Position controls
-                ['x', 'y', 'z'].forEach(axis => {
-                    const posSlider = document.getElementById(`${meshName}-pos-${axis}`);
-                    if (posSlider) {
-                        posSlider.addEventListener('input', (e) => {
-                            this.meshes[meshName].position[axis] = parseFloat(e.target.value);
-                        });
-                    }
-                });
-                
-                // Scale controls
-                ['x', 'y', 'z'].forEach(axis => {
-                    const scaleSlider = document.getElementById(`${meshName}-scale-${axis}`);
-                    if (scaleSlider) {
-                        scaleSlider.addEventListener('input', (e) => {
-                            this.meshes[meshName].scale[axis] = parseFloat(e.target.value);
-                        });
-                    }
-                });
-            }
-        });
-    }
-    
-    logCurrentValues() {
-        console.log('Current mesh values:');
-        const meshes = ['head', 'neck', 'chest', 'spine', 'leftArm', 'leftForearm', 'rightArm', 'rightForearm', 'leftThigh', 'leftShin', 'rightThigh', 'rightShin'];
-        
-        meshes.forEach(meshName => {
-            if (this.meshes[meshName]) {
-                const pos = this.meshes[meshName].position;
-                const scale = this.meshes[meshName].scale;
-                console.log(`${meshName}: position(${pos.x.toFixed(3)}, ${pos.y.toFixed(3)}, ${pos.z.toFixed(3)}) scale(${scale.x.toFixed(2)}, ${scale.y.toFixed(2)}, ${scale.z.toFixed(2)})`);
-            }
-        });
-    }
-    
-    resetMeshValues() {
-        const meshes = ['head', 'neck', 'chest', 'spine', 'leftArm', 'leftForearm', 'rightArm', 'rightForearm', 'leftThigh', 'leftShin', 'rightThigh', 'rightShin'];
-        
-        meshes.forEach(meshName => {
-            if (this.meshes[meshName]) {
-                // Reset scale to 1
-                this.meshes[meshName].scale.set(1, 1, 1);
-                
-                // Reset position sliders
-                ['x', 'y', 'z'].forEach(axis => {
-                    const posSlider = document.getElementById(`${meshName}-pos-${axis}`);
-                    const scaleSlider = document.getElementById(`${meshName}-scale-${axis}`);
-                    if (scaleSlider) scaleSlider.value = 1;
-                });
-            }
-        });
     }
     
     resetPose() {
@@ -712,11 +654,3 @@ const stickPerson = new StickPerson();
 
 // Make it globally available for the HTML controls
 window.stickPerson = stickPerson;
-
-// Global function to toggle mesh controls
-function toggleMeshControls() {
-    const content = document.getElementById('mesh-controls-content');
-    content.style.display = content.style.display === 'none' ? 'block' : 'none';
-}
-
-window.toggleMeshControls = toggleMeshControls;
