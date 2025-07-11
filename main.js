@@ -126,9 +126,9 @@ class StickPerson {
         this.bones.head.position.set(0, 1.5, 0);
         this.bones.spine.add(this.bones.head);
         
-        // Left arm chain - adjusted positions for proper connection
+        // Left arm chain - adjusted to connect properly to torso
         this.bones.leftShoulder = new THREE.Bone();
-        this.bones.leftShoulder.position.set(-0.5, 1.2, 0);
+        this.bones.leftShoulder.position.set(-0.1, 1.2, 0);
         this.bones.spine.add(this.bones.leftShoulder);
         
         this.bones.leftArm = new THREE.Bone();
@@ -139,9 +139,9 @@ class StickPerson {
         this.bones.leftForearm.position.set(-0.7, 0, 0);
         this.bones.leftArm.add(this.bones.leftForearm);
         
-        // Right arm chain - adjusted positions for proper connection
+        // Right arm chain - adjusted to connect properly to torso
         this.bones.rightShoulder = new THREE.Bone();
-        this.bones.rightShoulder.position.set(0.5, 1.2, 0);
+        this.bones.rightShoulder.position.set(0.1, 1.2, 0);
         this.bones.spine.add(this.bones.rightShoulder);
         
         this.bones.rightArm = new THREE.Bone();
@@ -152,10 +152,10 @@ class StickPerson {
         this.bones.rightForearm.position.set(0.7, 0, 0);
         this.bones.rightArm.add(this.bones.rightForearm);
         
-        // Left leg chain - adjusted positions for proper connection
+        // Left leg chain - adjusted to connect properly to torso
         this.bones.leftHip = new THREE.Bone();
-        this.bones.leftHip.position.set(-0.3, 0.2, 0);
-        this.bones.root.add(this.bones.leftHip);
+        this.bones.leftHip.position.set(-0.1, 0.25, 0);
+        this.bones.spine.add(this.bones.leftHip);
         
         this.bones.leftThigh = new THREE.Bone();
         this.bones.leftThigh.position.set(0, -0.8, 0);
@@ -165,10 +165,10 @@ class StickPerson {
         this.bones.leftShin.position.set(0, -0.8, 0);
         this.bones.leftThigh.add(this.bones.leftShin);
         
-        // Right leg chain - adjusted positions for proper connection
+        // Right leg chain - adjusted to connect properly to torso
         this.bones.rightHip = new THREE.Bone();
-        this.bones.rightHip.position.set(0.3, 0.2, 0);
-        this.bones.root.add(this.bones.rightHip);
+        this.bones.rightHip.position.set(0.1, 0.25, 0);
+        this.bones.spine.add(this.bones.rightHip);
         
         this.bones.rightThigh = new THREE.Bone();
         this.bones.rightThigh.position.set(0, -0.8, 0);
@@ -200,7 +200,7 @@ class StickPerson {
         this.meshes.torso.castShadow = true;
         this.bones.spine.add(this.meshes.torso);
         
-        // Arms - positioned to connect at joints
+        // Arms
         const armGeometry = new THREE.CylinderGeometry(0.05, 0.05, 0.7, 8);
         
         this.meshes.leftArm = new THREE.Mesh(armGeometry, stickMaterial);
@@ -227,7 +227,7 @@ class StickPerson {
         this.meshes.rightForearm.castShadow = true;
         this.bones.rightArm.add(this.meshes.rightForearm);
         
-        // Legs - positioned to connect at joints
+        // Legs
         const legGeometry = new THREE.CylinderGeometry(0.05, 0.05, 0.8, 8);
         
         this.meshes.leftThigh = new THREE.Mesh(legGeometry, stickMaterial);
