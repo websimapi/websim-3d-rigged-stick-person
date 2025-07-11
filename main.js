@@ -161,23 +161,23 @@ class StickPerson {
         
         // Left arm chain - connected to chest
         this.bones.leftShoulder = new THREE.Bone();
-        this.bones.leftShoulder.position.set(-0.2, 0.1, 0);
+        this.bones.leftShoulder.position.set(-0.15, 0.1, 0);
         this.bones.chest.add(this.bones.leftShoulder);
         
         this.bones.leftArm = new THREE.Bone();
-        this.bones.leftArm.position.set(-0.3, 0, 0);
+        this.bones.leftArm.position.set(-0.2, 0, 0);
         this.bones.leftShoulder.add(this.bones.leftArm);
         
         this.bones.leftElbow = new THREE.Bone();
-        this.bones.leftElbow.position.set(-0.3, 0, 0);
+        this.bones.leftElbow.position.set(-0.2, 0, 0);
         this.bones.leftArm.add(this.bones.leftElbow);
         
         this.bones.leftForearm = new THREE.Bone();
-        this.bones.leftForearm.position.set(-0.3, 0, 0);
+        this.bones.leftForearm.position.set(-0.2, 0, 0);
         this.bones.leftElbow.add(this.bones.leftForearm);
         
         this.bones.leftHand = new THREE.Bone();
-        this.bones.leftHand.position.set(-0.15, 0, 0);
+        this.bones.leftHand.position.set(-0.1, 0, 0);
         this.bones.leftForearm.add(this.bones.leftHand);
         
         // Left hand fingers
@@ -212,23 +212,23 @@ class StickPerson {
         
         // Right arm chain - connected to chest
         this.bones.rightShoulder = new THREE.Bone();
-        this.bones.rightShoulder.position.set(0.2, 0.1, 0);
+        this.bones.rightShoulder.position.set(0.15, 0.1, 0);
         this.bones.chest.add(this.bones.rightShoulder);
         
         this.bones.rightArm = new THREE.Bone();
-        this.bones.rightArm.position.set(0.3, 0, 0);
+        this.bones.rightArm.position.set(0.2, 0, 0);
         this.bones.rightShoulder.add(this.bones.rightArm);
         
         this.bones.rightElbow = new THREE.Bone();
-        this.bones.rightElbow.position.set(0.3, 0, 0);
+        this.bones.rightElbow.position.set(0.2, 0, 0);
         this.bones.rightArm.add(this.bones.rightElbow);
         
         this.bones.rightForearm = new THREE.Bone();
-        this.bones.rightForearm.position.set(0.3, 0, 0);
+        this.bones.rightForearm.position.set(0.2, 0, 0);
         this.bones.rightElbow.add(this.bones.rightForearm);
         
         this.bones.rightHand = new THREE.Bone();
-        this.bones.rightHand.position.set(0.15, 0, 0);
+        this.bones.rightHand.position.set(0.1, 0, 0);
         this.bones.rightForearm.add(this.bones.rightHand);
         
         // Right hand fingers
@@ -262,19 +262,19 @@ class StickPerson {
         
         // Left leg chain - connected to spine
         this.bones.leftHip = new THREE.Bone();
-        this.bones.leftHip.position.set(-0.1, -0.1, 0);
+        this.bones.leftHip.position.set(-0.08, -0.1, 0);
         this.bones.spine.add(this.bones.leftHip);
         
         this.bones.leftThigh = new THREE.Bone();
-        this.bones.leftThigh.position.set(0, -0.4, 0);
+        this.bones.leftThigh.position.set(0, -0.3, 0);
         this.bones.leftHip.add(this.bones.leftThigh);
         
         this.bones.leftKnee = new THREE.Bone();
-        this.bones.leftKnee.position.set(0, -0.4, 0);
+        this.bones.leftKnee.position.set(0, -0.3, 0);
         this.bones.leftThigh.add(this.bones.leftKnee);
         
         this.bones.leftShin = new THREE.Bone();
-        this.bones.leftShin.position.set(0, -0.4, 0);
+        this.bones.leftShin.position.set(0, -0.3, 0);
         this.bones.leftKnee.add(this.bones.leftShin);
         
         this.bones.leftFoot = new THREE.Bone();
@@ -287,19 +287,19 @@ class StickPerson {
         
         // Right leg chain - connected to spine
         this.bones.rightHip = new THREE.Bone();
-        this.bones.rightHip.position.set(0.1, -0.1, 0);
+        this.bones.rightHip.position.set(0.08, -0.1, 0);
         this.bones.spine.add(this.bones.rightHip);
         
         this.bones.rightThigh = new THREE.Bone();
-        this.bones.rightThigh.position.set(0, -0.4, 0);
+        this.bones.rightThigh.position.set(0, -0.3, 0);
         this.bones.rightHip.add(this.bones.rightThigh);
         
         this.bones.rightKnee = new THREE.Bone();
-        this.bones.rightKnee.position.set(0, -0.4, 0);
+        this.bones.rightKnee.position.set(0, -0.3, 0);
         this.bones.rightThigh.add(this.bones.rightKnee);
         
         this.bones.rightShin = new THREE.Bone();
-        this.bones.rightShin.position.set(0, -0.4, 0);
+        this.bones.rightShin.position.set(0, -0.3, 0);
         this.bones.rightKnee.add(this.bones.rightShin);
         
         this.bones.rightFoot = new THREE.Bone();
@@ -347,45 +347,45 @@ class StickPerson {
         this.bones.spine.add(this.meshes.spine);
         
         // Arms
-        const armGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.3, 8);
-        const forearmGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.3, 8);
+        const armGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.2, 8);
+        const forearmGeometry = new THREE.CylinderGeometry(0.025, 0.025, 0.2, 8);
         
         // Left arm
         this.meshes.leftArm = new THREE.Mesh(armGeometry, stickMaterial);
-        this.meshes.leftArm.position.set(-0.15, 0, 0);
+        this.meshes.leftArm.position.set(-0.1, 0, 0);
         this.meshes.leftArm.rotation.z = Math.PI / 2;
         this.meshes.leftArm.castShadow = true;
         this.bones.leftShoulder.add(this.meshes.leftArm);
         
         this.meshes.leftForearm = new THREE.Mesh(forearmGeometry, stickMaterial);
-        this.meshes.leftForearm.position.set(-0.15, 0, 0);
+        this.meshes.leftForearm.position.set(-0.1, 0, 0);
         this.meshes.leftForearm.rotation.z = Math.PI / 2;
         this.meshes.leftForearm.castShadow = true;
         this.bones.leftElbow.add(this.meshes.leftForearm);
         
         // Right arm
         this.meshes.rightArm = new THREE.Mesh(armGeometry, stickMaterial);
-        this.meshes.rightArm.position.set(0.15, 0, 0);
+        this.meshes.rightArm.position.set(0.1, 0, 0);
         this.meshes.rightArm.rotation.z = Math.PI / 2;
         this.meshes.rightArm.castShadow = true;
         this.bones.rightShoulder.add(this.meshes.rightArm);
         
         this.meshes.rightForearm = new THREE.Mesh(forearmGeometry, stickMaterial);
-        this.meshes.rightForearm.position.set(0.15, 0, 0);
+        this.meshes.rightForearm.position.set(0.1, 0, 0);
         this.meshes.rightForearm.rotation.z = Math.PI / 2;
         this.meshes.rightForearm.castShadow = true;
         this.bones.rightElbow.add(this.meshes.rightForearm);
         
         // Hands
-        const handGeometry = new THREE.BoxGeometry(0.15, 0.08, 0.05);
+        const handGeometry = new THREE.BoxGeometry(0.1, 0.06, 0.04);
         
         this.meshes.leftHand = new THREE.Mesh(handGeometry, stickMaterial);
-        this.meshes.leftHand.position.set(-0.075, 0, 0);
+        this.meshes.leftHand.position.set(-0.05, 0, 0);
         this.meshes.leftHand.castShadow = true;
         this.bones.leftHand.add(this.meshes.leftHand);
         
         this.meshes.rightHand = new THREE.Mesh(handGeometry, stickMaterial);
-        this.meshes.rightHand.position.set(0.075, 0, 0);
+        this.meshes.rightHand.position.set(0.05, 0, 0);
         this.meshes.rightHand.castShadow = true;
         this.bones.rightHand.add(this.meshes.rightHand);
         
@@ -423,28 +423,28 @@ class StickPerson {
         });
         
         // Legs
-        const thighGeometry = new THREE.CylinderGeometry(0.04, 0.04, 0.4, 8);
-        const shinGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.4, 8);
+        const thighGeometry = new THREE.CylinderGeometry(0.04, 0.04, 0.3, 8);
+        const shinGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.3, 8);
         
         // Left leg
         this.meshes.leftThigh = new THREE.Mesh(thighGeometry, stickMaterial);
-        this.meshes.leftThigh.position.set(0, -0.2, 0);
+        this.meshes.leftThigh.position.set(0, -0.15, 0);
         this.meshes.leftThigh.castShadow = true;
         this.bones.leftHip.add(this.meshes.leftThigh);
         
         this.meshes.leftShin = new THREE.Mesh(shinGeometry, stickMaterial);
-        this.meshes.leftShin.position.set(0, -0.2, 0);
+        this.meshes.leftShin.position.set(0, -0.15, 0);
         this.meshes.leftShin.castShadow = true;
         this.bones.leftKnee.add(this.meshes.leftShin);
         
         // Right leg
         this.meshes.rightThigh = new THREE.Mesh(thighGeometry, stickMaterial);
-        this.meshes.rightThigh.position.set(0, -0.2, 0);
+        this.meshes.rightThigh.position.set(0, -0.15, 0);
         this.meshes.rightThigh.castShadow = true;
         this.bones.rightHip.add(this.meshes.rightThigh);
         
         this.meshes.rightShin = new THREE.Mesh(shinGeometry, stickMaterial);
-        this.meshes.rightShin.position.set(0, -0.2, 0);
+        this.meshes.rightShin.position.set(0, -0.15, 0);
         this.meshes.rightShin.castShadow = true;
         this.bones.rightKnee.add(this.meshes.rightShin);
         
