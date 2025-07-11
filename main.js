@@ -161,7 +161,7 @@ class StickPerson {
         
         // Left arm chain - connected to chest
         this.bones.leftShoulder = new THREE.Bone();
-        this.bones.leftShoulder.position.set(-0.1, 0.1, 0);
+        this.bones.leftShoulder.position.set(-0.05, 0.08, 0);
         this.bones.chest.add(this.bones.leftShoulder);
         
         this.bones.leftArm = new THREE.Bone();
@@ -212,7 +212,7 @@ class StickPerson {
         
         // Right arm chain - connected to chest
         this.bones.rightShoulder = new THREE.Bone();
-        this.bones.rightShoulder.position.set(0.1, 0.1, 0);
+        this.bones.rightShoulder.position.set(0.05, 0.08, 0);
         this.bones.chest.add(this.bones.rightShoulder);
         
         this.bones.rightArm = new THREE.Bone();
@@ -262,7 +262,7 @@ class StickPerson {
         
         // Left leg chain - connected to spine
         this.bones.leftHip = new THREE.Bone();
-        this.bones.leftHip.position.set(-0.06, -0.1, 0);
+        this.bones.leftHip.position.set(-0.04, -0.05, 0);
         this.bones.spine.add(this.bones.leftHip);
         
         this.bones.leftThigh = new THREE.Bone();
@@ -287,7 +287,7 @@ class StickPerson {
         
         // Right leg chain - connected to spine
         this.bones.rightHip = new THREE.Bone();
-        this.bones.rightHip.position.set(0.06, -0.1, 0);
+        this.bones.rightHip.position.set(0.04, -0.05, 0);
         this.bones.spine.add(this.bones.rightHip);
         
         this.bones.rightThigh = new THREE.Bone();
@@ -332,17 +332,17 @@ class StickPerson {
         this.meshes.neck.castShadow = true;
         this.bones.neck.add(this.meshes.neck);
         
-        // Chest (upper torso)
-        const chestGeometry = new THREE.CylinderGeometry(0.08, 0.07, 0.5, 8);
+        // Chest (upper torso) - reduced size
+        const chestGeometry = new THREE.CylinderGeometry(0.06, 0.05, 0.35, 8);
         this.meshes.chest = new THREE.Mesh(chestGeometry, stickMaterial);
-        this.meshes.chest.position.set(0, 0.25, 0);
+        this.meshes.chest.position.set(0, 0.175, 0);
         this.meshes.chest.castShadow = true;
         this.bones.chest.add(this.meshes.chest);
         
-        // Spine (lower torso)
-        const spineGeometry = new THREE.CylinderGeometry(0.07, 0.08, 0.5, 8);
+        // Spine (lower torso) - reduced size
+        const spineGeometry = new THREE.CylinderGeometry(0.05, 0.06, 0.35, 8);
         this.meshes.spine = new THREE.Mesh(spineGeometry, stickMaterial);
-        this.meshes.spine.position.set(0, 0.25, 0);
+        this.meshes.spine.position.set(0, 0.175, 0);
         this.meshes.spine.castShadow = true;
         this.bones.spine.add(this.meshes.spine);
         
